@@ -15,7 +15,7 @@ describe('FilesController', () => {
   let filesController: FilesController;
 
   const mockFileRepository = {
-    findOrCreate: jest.fn(() => [createdMockFile]),
+    create: jest.fn(() => [createdMockFile]),
   };
 
   beforeEach(async () => {

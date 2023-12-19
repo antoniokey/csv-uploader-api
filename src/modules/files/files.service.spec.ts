@@ -14,7 +14,7 @@ describe('FilesService', () => {
   let service: FilesService;
 
   const mockFileRepository = {
-    findOrCreate: jest.fn(() => [createdMockFile]),
+    create: jest.fn(() => [createdMockFile]),
   };
 
   beforeEach(async () => {

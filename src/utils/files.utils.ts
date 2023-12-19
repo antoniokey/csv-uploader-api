@@ -1,7 +1,7 @@
 import { fileDataKeys } from '../constants/files.constants';
 import { FileData } from '../modules/files/entities/file-data.entity';
 
-export const prepareFileData = (fileData: FileData[]): any => {
+export const prepareFileData = (fileData: FileData[]): FileData[] => {
   return fileData
     .map((fileDataItem) => {
       const fileDataItemEntries = Object.entries(fileDataItem);

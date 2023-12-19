@@ -13,3 +13,20 @@ export const fileDataKeys = {
   [FileDataKey.Name]: FileDatabaseKey.Name,
   [FileDataKey.Date]: FileDatabaseKey.Date,
 };
+
+export const allowedMimeTypes: string[] = ['text/csv'];
+export const allowedFileTypes: string[] = ['.csv'];
+
+export const allowedFileFields: string[] = [
+  FileDataKey.Id,
+  FileDataKey.UserName,
+  FileDataKey.FirstName,
+  FileDataKey.LastName,
+  FileDataKey.City,
+  FileDataKey.Address,
+  FileDataKey.Zip,
+  FileDataKey.CreditCardCode,
+  FileDataKey.CVV,
+  FileDataKey.Name,
+  FileDataKey.Date,
+];

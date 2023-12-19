@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 
+import { filesProviders } from '../../providers/files.providers';
+
 import { FilesController } from './files.controller';
 import { FilesService } from './files.service';
-import { filesProviders } from '../../providers/files.providers';
 import { File } from './entities/file.entity';
 import { FileData } from './entities/file-data.entity';
 

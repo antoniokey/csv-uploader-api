@@ -1,12 +1,18 @@
 import {
   Controller,
-  FileTypeValidator,
   ParseFilePipe,
   Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+
+import { UploadedFileTypeValidator } from '../../validators/uploaded-file/uploaded-file-type.validator';
+import { UploadedFileFieldsValidator } from '../../validators/uploaded-file/uploaded-file-fields.validator';
+import {
+  allowedFileFields,
+  allowedMimeTypes,
+} from '../../constants/files.constants';
 
 import { FilesService } from './files.service';
 import { File } from './entities/file.entity';
@@ -20,8 +26,10 @@ export class FilesController {
   public uploadFile(
     @UploadedFile(
       new ParseFilePipe({
-        fileIsRequired: true,
-        validators: [new FileTypeValidator({ fileType: '.csv' })],
+        validators: [
+          new UploadedFileTypeValidator({ fileTypes: allowedMimeTypes }),
+          new UploadedFileFieldsValidator({ fileFiels: allowedFileFields }),
+        ],
       }),
     )
     file: Express.Multer.File,
